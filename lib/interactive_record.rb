@@ -2,6 +2,7 @@ require_relative "../config/environment.rb"
 require 'active_support/inflector'
 
 class InteractiveRecord
+  attr_accessor :name, :grade
 
   def self.table_name
     self.to_s.downcase.pluralize
@@ -16,5 +17,10 @@ class InteractiveRecord
       column_names<<column["name"]
     end
     column_names.compact
+  end
+
+  def initialize(name, grade)
+    @name = name
+    @grade = grade
   end
 end
