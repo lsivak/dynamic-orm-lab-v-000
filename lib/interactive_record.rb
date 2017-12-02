@@ -38,7 +38,7 @@ end
   def initialize(options = {})
   options.each do |col_name, value|
     self.send("#{col_name}=", value)
-      attr_accessor column_name.to_s
+      attr_accessor column_names.to_s
   end
 end
 
