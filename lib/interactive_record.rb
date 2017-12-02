@@ -26,7 +26,7 @@ class InteractiveRecord
     end
     values.join(", ")
   end
-  
+
 def table_name_for_insert
   self.class.table_name
 end
@@ -36,16 +36,16 @@ def col_names_for_insert
 end
 
   def initialize(options = {})
-  options.each do |column, value|
-    self.send("#{property}=", value)
+  options.each do |col_name, value|
+    self.send("#{col_name}=", value)
       attr_accessor column_name.to_s
   end
 end
 def save
   sql = "INSERT INTO #{table_name_for_insert} (#{col_names_for_insert}) VALUES (#{values_for_insert})"
- 
+
   DB[:conn].execute(sql)
- 
+
   @id = DB[:conn].execute("SELECT last_insert_rowid() FROM #{table_name_for_insert}")[0][0]
 end
 def self.find_by_name(name)
