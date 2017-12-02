@@ -28,7 +28,7 @@ end
 
   def initialize(options = {})
   options.each do |property, value|
-    self.send("#{property}=, value")
+    self.send("#{property}=", value)
       attr_accessor column_name.to_s
   end
 end
