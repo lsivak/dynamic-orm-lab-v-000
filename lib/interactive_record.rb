@@ -15,15 +15,17 @@ class InteractiveRecord
     column_names = []
     table_info.each do |column|
       column_names<<column["name"]
-      attr_accessor column_name.to_s
     end
     column_names.compact
   end
 
-
+def table_name_for_insert
+  self.class.table_name
+end
   def initialize(options = {})
   options.each do |property, value|
     self.send("#{property}=, value")
+      attr_accessor column_name.to_s
   end
 end
 end
