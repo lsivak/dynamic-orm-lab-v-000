@@ -36,9 +36,8 @@ def col_names_for_insert
 end
 
   def initialize(options = {})
-  options.each do |col_name, value|
-    self.send("#{col_name}=", value)
-      attr_accessor column_names.to_s
+  options.each do |property, value|
+    self.send("#{property}=", value)
   end
 end
 
