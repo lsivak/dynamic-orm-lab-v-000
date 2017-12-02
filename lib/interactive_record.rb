@@ -19,7 +19,7 @@ class InteractiveRecord
     column_names.compact
   end
 
-  def initialize(id,  name, grade)
+  def initialize(name, grade, id)
     @id = id
     @name = name
     @grade = grade
