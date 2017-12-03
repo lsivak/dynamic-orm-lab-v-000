@@ -55,11 +55,11 @@ def self.find_by_name(name)
 end
 
 def self.find_by(attribute)
-  key = attribute.keys.first
+  key = attribute.keys.first.to_s
   value = attribute.values.first
    attribute.values == Fixnum ? value : "'#{value}'"
    binding.pry
-  sql = "SELECT * FROM #{self.table_name} WHERE #{attribute.keys.first} = '#{attribute}'"
+  sql = "SELECT * FROM #{self.table_name} WHERE #{key} = '#{value}'"
   DB[:conn].execute(sql)
 end
 
