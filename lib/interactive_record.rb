@@ -54,7 +54,7 @@ def self.find_by_name(name)
 end
 
 def self.find_by(attribute)
-  value = attribute_hash.values.first
+  value = attribute.values.first
    attribute.values == Fixnum ? value : "'#{value}'"
   sql = "SELECT * FROM #{self.table_name} WHERE #{attribute.keys.first} = '#{attribute}'"
   DB[:conn].execute(sql)
