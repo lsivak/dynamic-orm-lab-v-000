@@ -55,7 +55,7 @@ end
 
 def self.find_by(attribute)
   key = "#{attribute.keys}"
-  sql = "SELECT * FROM #{self.table_name} WHERE #{key.join()} = '#{attribute}'"
+  sql = "SELECT * FROM #{self.table_name} WHERE #{key.first} = '#{attribute}'"
   DB[:conn].execute(sql)
 end
 
