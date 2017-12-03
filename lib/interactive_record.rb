@@ -55,6 +55,7 @@ def self.find_by_name(name)
 end
 
 def self.find_by(attribute)
+  key = attribute.keys.first
   value = attribute.values.first
    attribute.values == Fixnum ? value : "'#{value}'"
    binding.pry
